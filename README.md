@@ -10,9 +10,14 @@ Installation and upgrade guide: https://doc.owncloud.com/server/next/admin_manua
 
 ## Setting up a stack
 
-```shell
-make build && make up
-```
+- Set up your .env file (template [.env-example](.env-example))
+  ```shell
+  cp .env-example .env
+  ```
+- Start building the stack and running it
+  ```shell
+  make build && make up
+  ```
 
 ## Starting a stack
 
