@@ -1,6 +1,6 @@
 .PHONY: static
 
-BASE_STACK = docker-compose -f "docker-compose.yml"
+BASE_STACK = docker compose -f "docker-compose.yml"
 
 
 build:
