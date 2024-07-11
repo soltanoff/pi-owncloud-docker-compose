@@ -11,4 +11,3 @@ up:
 
 down:
 	$(BASE_STACK) down --remove-orphans
-
