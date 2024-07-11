@@ -35,6 +35,10 @@ services:
     depends_on:
       - db
       - keydb
+    deploy:
+      resources:
+        limits:
+          cpus: "2.0"
     healthcheck:
       test: [ "CMD", "/usr/bin/healthcheck" ]
       interval: 30s
