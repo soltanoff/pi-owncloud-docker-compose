@@ -45,7 +45,7 @@ services:
       timeout: 10s
       retries: 5
     volumes:
-      - cloud_files:/mnt/data
+      - ${OWNCLOUD_STORAGE}:/mnt/data
 
   db:
     image: yobasystems/alpine-mariadb:10.11

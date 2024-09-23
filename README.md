@@ -25,6 +25,12 @@ Installation and upgrade guide: https://doc.owncloud.com/server/next/admin_manua
 make up
 ```
 
+## Updating a stack
+
+```shell
+make update
+```
+
 ## Stopping the stack (with `--remove-orphans` mode)
 
 ```shell
