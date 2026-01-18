@@ -48,7 +48,7 @@ services:
       - ${OWNCLOUD_STORAGE}:/mnt/data
 
   db:
-    image: yobasystems/alpine-mariadb:10.11
+    image: mariadb:10.11
     container_name: owncloud_db
     environment:
       <<: *x-db-environment
