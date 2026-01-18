@@ -20,7 +20,7 @@ x-cloud-environment: &x-cloud-environment
   OWNCLOUD_ADMIN_PASSWORD: ${ADMIN_PASSWORD}
   OWNCLOUD_MYSQL_UTF8MB4: true
   OWNCLOUD_REDIS_ENABLED: true
-  OWNCLOUD_REDIS_HOST: keydb
+  OWNCLOUD_REDIS_HOST: redis
 
 
 services:
@@ -34,7 +34,7 @@ services:
       - ${HTTP_PORT}:8080
     depends_on:
       - db
-      - keydb
+      - redis
     deploy:
       resources:
         limits:
@@ -62,18 +62,18 @@ services:
     volumes:
       - db_data:/var/lib/mysql
 
-  keydb:
-    image: eqalpha/keydb:arm64_v6.3.4
-    container_name: owncloud_keydb
+  redis:
+    image: redis:8.4-alpine
+    container_name: owncloud_redis
     restart: always
     command: [ "--databases", "1" ]
     healthcheck:
-      test: [ "CMD", "keydb-cli", "ping" ]
+      test: [ "CMD", "redis-cli", "ping" ]
       interval: 10s
       timeout: 5s
       retries: 5
     volumes:
-      - keydb_data:/data
+      - redis_data:/data
 
 
 volumes:
@@ -81,5 +81,5 @@ volumes:
     driver: local
   db_data:
     driver: local
-  keydb_data:
+  redis_data:
     driver: local
