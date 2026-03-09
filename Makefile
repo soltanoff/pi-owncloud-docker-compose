@@ -20,3 +20,6 @@ down:
 maintance-off:
 	$(BASE_STACK) exec owncloud occ maintenance:mode --off
 
+files-recovering:
+	$(BASE_STACK) exec owncloud occ files:scan --all
+
