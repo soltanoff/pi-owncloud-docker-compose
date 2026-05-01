@@ -17,6 +17,9 @@ update:
 down:
 	$(BASE_STACK) down --remove-orphans
 
+maintance-on:
+	$(BASE_STACK) exec owncloud occ maintenance:mode --on
+
 maintance-off:
 	$(BASE_STACK) exec owncloud occ maintenance:mode --off
 
